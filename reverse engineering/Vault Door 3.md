@@ -11,6 +11,7 @@ first i learn basic java
 - step 2
 
 then understood the loop
+
 `for (i=0; i<8; i++) {
             buffer[i] = password.charAt(i);// first 7 char of the final string is same as the input pass
         }
@@ -27,14 +28,15 @@ then understood the loop
 - step 3
 
 did these loops in reverse by making a table
+
 and got 'jU5t_a_s1mpl3_an4gr4m_4_u_c79a21'
 
 - terminal
-
+```
 Enter vault password: 
 picoCTF{jU5t_a_s1mpl3_an4gr4m_4_u_c79a21}
 Access granted.
-
+```
 
 
 
