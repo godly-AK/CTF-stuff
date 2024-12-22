@@ -1,7 +1,7 @@
 
 # GDB baby step 1
 
-**Flag:** `flag`
+**Flag:** `picoCTF{549698}`
 
 How you approached the challenge:
 
