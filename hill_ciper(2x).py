@@ -1,15 +1,12 @@
 import sympy as sp
 import math
 
-"key and plaintext length should be a square"
-key = 'GYBNQKURP'
-plaintext = 'ACT'
-enc = ''
+key = 'GYBNQKURP'         # Must be n×n
+plaintext = 'ACT'         # Must be length n
 
-def matrixmaker(text):
-  n = int(math.sqrt(len(text)))
+def matrixmaker(text, rows, cols):
   vals = [(ord(ch.lower()) - ord('a')) % 26 for ch in text]
-  return sp.Matrix(n, n, vals)
+  return sp.Matrix(rows, cols, vals)
 
 def matrixtostring(matrix):
   text = ''
@@ -20,20 +17,23 @@ def matrixtostring(matrix):
   return text
 
 def encryption():
-  keym = matrixmaker(key)
-  plaintextm = matrixmaker(plaintext)
+  n = int(math.sqrt(len(key)))
+  keym = matrixmaker(key, n, n)
+  plaintextm = matrixmaker(plaintext, n, 1)
   encm = (keym * plaintextm) % 26
   return matrixtostring(encm)
 
 def decryption(enc_text):
-  encm = matrixmaker(enc_text)
-  keym = matrixmaker(key)
+  n = len(enc_text)      
+  encm = matrixmaker(enc_text, n, 1)
+  keym = matrixmaker(key, n, n)
   inv_key = keym.inv_mod(26)
   decm = (inv_key * encm) % 26
   return matrixtostring(decm)
 
 def bf2x(enc_text):
-  encm = matrixmaker(enc_text)
+  n = len(enc_text)
+  encm = matrixmaker(enc_text, 2, 1)
   for a in range(26):
     for b in range(26):
       for c in range(26):
