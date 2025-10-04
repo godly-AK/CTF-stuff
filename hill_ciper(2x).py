@@ -42,12 +42,7 @@ def bf2x(enc_text):
           try:
             inv_key = keym.inv_mod(26)
             dec = (inv_key * encm) % 26
-            recovered = []
-            for col in range(dec.cols):
-              for row in range(dec.rows):
-                v = int(dec[row, col]) % 26
-                recovered.append(chr(v + ord('a')))
-            print(''.join(recovered))
+            print(matrixtostring(dec))
           except:
             continue
   return None
