@@ -1,12 +1,11 @@
 import sympy as sp
 import math
-
+"key and plaintext length should be a square"
 key = ''
 plaintext = ''
 enc = None
 
-def pad_text(text, block_size):
-  return (text + 'x' * (block_size * block_size))[:block_size * block_size]
+
 
 def matrixmaker(text):
   n = int(math.sqrt(len(text)))
